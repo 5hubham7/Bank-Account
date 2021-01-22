@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Account - Shubham S. Yadav</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-3">
+            <h1 class="h1">
+                Bank Account using REST API - Shubham S. Yadav
+            </h1>
+        </div>
+        <div class="form m-3">
+            <div class="form-group float-right">
+                <button class="btn btn-outline-primary text-uppercase"
+                    onclick="location.href = './createAccount.html';">Click here to create new account</button>
+            </div>
+            <div class="form-group">
+                <label class="label" for="inputAccountNumber">
+                    Enter your account number to access your account:
+                </label>
+                <input type="text" name="inputAccountNumber" id="inputAccountNumber" class="form-control" />
+            </div>
+            <button class="btn btn-primary btn-block text-uppercase" id="accessAccount" onclick="accessAccount()">
+                Access account
+            </button>
+        </div>
+        <div class="form-row m-3">
+            <h2 class="h2" id="welcome"></h2>
+        </div>
+        <div id="services" hidden>
+            <div class="form-row m-3">
+                <div class="col-lg-6 mt-3">
+                    <input type="text" name="inputDepositAmount" id="inputDepositAmount" class="form-control"
+                        placeholder="Enter amount to deposit" />
+                </div>
+                <div class="col-lg-6 mt-3">
+                    <button class="btn btn-success btn-block text-uppercase" id="deposit" onclick="deposit()">
+                        deposit
+                    </button>
+                </div>
+            </div>
+            <div class="form-row m-3">
+                <div class="col-lg-6 mt-3">
+                    <input type="text" name="inputWithdrawAmount" id="inputWithdrawAmount" class="form-control"
+                        placeholder="Enter amount to withdraw" />
+                </div>
+                <div class="col-lg-6 mt-3">
+                    <button class="btn btn-warning btn-block text-uppercase" id="withdraw" onclick="withdraw()">
+                        withdraw
+                    </button>
+                </div>
+            </div>
+            <div class="form-row m-3">
+                <div class="col-lg-12 mt-3">
+                    <button class="btn btn-secondary btn-block text-uppercase" id="viewStatement"
+                        onclick="viewStatement()">
+                        view statement
+                    </button>
+                </div>
+            </div>
+            <div class="row m-3">
+                <h3 class="h3" id="accountUpdate"></h3>
+            </div>
+            <div class="row m-3">
+                <table class="table text-center text-uppercase" id="statementTable" hidden>
+                    <thead>
+                        <tr class="font-weight-bold">
+                            <td>Sr. No.</td>
+                            <td>Date</td>
+                            <td>Particulars</td>
+                            <td>Amount</td>
+                            <td>Balance</td>
+                        </tr>
+                    </thead>
+                    <tbody id="statement"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

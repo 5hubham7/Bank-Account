@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank Account - Shubham S. Yadav</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row m-3">
+            <h1 class="h1">
+                Bank Account using REST API - Shubham S. Yadav
+            </h1>
+        </div>
+        <div class="form m-3">
+            <div class="form-group float-right">
+                <button class="btn btn-outline-primary text-uppercase" onclick="location.href = './index.html';">Back to
+                    home</button>
+            </div>
+
+            <h2 class="h2">Create Account</h2>
+            <div class="form-group">
+                <label class="label" for="inputName">
+                    Enter your name:
+                </label>
+                <input type="text" name="inputName" id="inputName" class="form-control" />
+                <label class="label" for="inputAccountNumber">
+                    Enter account balance:
+                </label>
+                <input type="text" name="inputBalance" id="inputBalance" class="form-control" />
+            </div>
+            <button class="btn btn-primary btn-block text-uppercase" id="accessAccount" onclick="createAccount()">
+                Create account
+            </button>
+        </div>
+        <div class="row m-3">
+            <h3 class="h3" id="accountCreateUpdate"></h3>
+        </div>
+    </div>
+</body>
+
+</html>
