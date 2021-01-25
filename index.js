@@ -2,13 +2,45 @@ var accountNumber;
 var services;
 var welcome;
 var accountUpdate;
+var accountsList;
+var accounts;
 var statementTable;
 var url;
 
-const accessAccount = async () => {
+const getAllAccounts = async () => {
+    document.getElementById("accountsList").removeAttribute("hidden");
+    accounts = document.getElementById("accounts");
+    url = "http://localhost:3000/getAllAccounts";
+
+    accountsTable = [];
+
+    let response = await fetch(url);
+    let data = await response.json();
+
+    for (let i in data) {
+        accountsTable +=
+            "<tr><td>" +
+            (parseInt(i) + 1) +
+            "</td><td>" +
+            data[i].accountNumber +
+            "</td><td>" +
+            data[i].name +
+            "</td><td>" +
+            "<button class='btn btn-dark text-uppercase' id='accessAccount' onclick='accessAccount(" +
+            data[i].accountNumber +
+            ");'>Access</button>" +
+            "</td>";
+        accountsTable += "</tr>";
+    }
+    console.log("AAA");
+    accounts.innerHTML = accountsTable;
+};
+
+const accessAccount = async (value) => {
+    accountNumber = value;
     document.getElementById("statementTable").setAttribute("hidden", true);
+    document.getElementById("accountsList").setAttribute("hidden", true);
     services = document.getElementById("services");
-    accountNumber = document.getElementById("inputAccountNumber").value;
     welcome = document.getElementById("welcome");
     url = "http://localhost:3000/accessAccount/" + accountNumber;
 
@@ -73,7 +105,6 @@ const viewStatement = async () => {
     statement = document.getElementById("statement");
     let statementTable = "";
     for (let i = 0; i < data.length; i++) {
-        console.log("OP:");
         statementTable += "<tr><td>" + (i + 1) + "</td>";
         for (let j = 0; j < data[i].length; j++) {
             statementTable += "<td>" + data[i][j] + "</td>";

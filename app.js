@@ -17,6 +17,19 @@ app.get("/", (req, res) => {
 
 let accountDetails = [];
 
+app.get("/getAllAccounts/", async (req, res) => {
+    let accounts = [];
+    file = await fs.readFile("accountDetails.json", "utf8");
+    accountDetails = await JSON.parse(file);
+    for (i in accountDetails) {
+        accounts.push({
+            accountNumber: accountDetails[i].accountNumber,
+            name: accountDetails[i].name,
+        });
+    }
+    return res.send(accounts);
+});
+
 app.get("/accessAccount/:accountNumber", async (req, res) => {
     let accountNumber = req.params.accountNumber;
 
